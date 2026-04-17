@@ -1,0 +1,4 @@
+jupyterlab
+astropy
+numpy
+sunpy

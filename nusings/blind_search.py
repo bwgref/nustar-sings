@@ -1171,45 +1171,45 @@ def make_report(grbtime, outpath='./'):
 
 
 
-
-def grb_visibility(grbtime, coord):
-
-    # Initialize Skyfield ephemeris tools.
-    from skyfield.api import EarthSatellite, Loader
-    from astropy.time import Time
-    import astropy.units as u
-
-    import nustar_pysolar.io as io
-
-
-    load_path = './'
-    load=Loader(load_path)
-        
-    ts = load.timescale()
-    t = ts.from_astropy(grbtime)
-    
-    
-    planets = load('de436.bsp')
-    earth = planets['Earth']
-
-    tlefile = io.download_tle(outdir=load_path)
-    mindt, line1, line2 = io.get_epoch_tle(grbtime.datetime, tlefile)
-    nustar = EarthSatellite(line1, line2)
-    observer = earth + nustar
-
-    astrometric = observer.at(t).observe(earth)
-    this_ra, this_dec, dist = astrometric.radec()
-
-    ra_deg = this_ra.to(u.deg)
-    dec_deg = this_dec.to(u.deg)
-
-
-    geocen = SkyCoord(ra_deg, dec_deg, unit =(u.deg, u.deg))
-    sep = geocen.separation(coord)
-
-
-    return sep
-
+# Not needed for blind search
+# def grb_visibility(grbtime, coord):
+# 
+#     # Initialize Skyfield ephemeris tools.
+#     from skyfield.api import EarthSatellite, Loader
+#     from astropy.time import Time
+#     import astropy.units as u
+# 
+#     import nustar_pysolar.io as io
+# 
+# 
+#     load_path = './'
+#     load=Loader(load_path)
+#         
+#     ts = load.timescale()
+#     t = ts.from_astropy(grbtime)
+#     
+#     
+#     planets = load('de436.bsp')
+#     earth = planets['Earth']
+# 
+#     tlefile = io.download_tle(outdir=load_path)
+#     mindt, line1, line2 = io.get_epoch_tle(grbtime.datetime, tlefile)
+#     nustar = EarthSatellite(line1, line2)
+#     observer = earth + nustar
+# 
+#     astrometric = observer.at(t).observe(earth)
+#     this_ra, this_dec, dist = astrometric.radec()
+# 
+#     ra_deg = this_ra.to(u.deg)
+#     dec_deg = this_dec.to(u.deg)
+# 
+# 
+#     geocen = SkyCoord(ra_deg, dec_deg, unit =(u.deg, u.deg))
+#     sep = geocen.separation(coord)
+# 
+# 
+#     return sep
+# 
 
 
 

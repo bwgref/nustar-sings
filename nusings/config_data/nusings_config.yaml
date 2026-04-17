@@ -1,0 +1,34 @@
+# make a config yaml file
+
+nustar-data-dir: "/disk/bifrost/nustar/fltops/"
+
+sings-paths:
+  main-dir: "/disk/bifrost/gaurav/sings"
+  essential-data-path: "/disk/bifrost/gaurav/sings/config_data/"
+  gcn-db-path: "/disk/bifrost/gaurav/sings/sings-products/gcn-notices-sings.db"
+  notice-archive-dir: "/disk/bifrost/gaurav/sings/sings-products/notices/"
+  notices-log: "/disk/bifrost/gaurav/sings/sings-products/notices/notice-log.txt"
+  ts-queue-db: "/disk/bifrost/gaurav/sings/sings-products/ts-queue.db"
+  ts-products-dir: "/disk/bifrost/gaurav/sings/sings-products/ts-products/"
+
+blind-search:
+  web-dir: "/home/nustar1/Web/grbs/automated_search"
+  nustar-aft: "/home/nustar1/nustarops/ADP/NuSTAR.aft.SOC"
+  
+slack:
+  slack-ts-reports: "sings-ts-reports"
+  slack-ts-reports-id: "C0AFBGF5XRQ"
+  slack-ts-reports-status: 1 # 0: off, 1: on
+  slack-ts-notices: "sings-ts-notices"
+  slack-ts-notices-id: "C0AEW3T775M"
+  slack-ts-notices-status: 1 # 0: off, 1: on
+  # slack-ts-circulars: "sings-ts-circulars" # put circulars in the same channel as notices for now
+  # slack-ts-circulars-id: "C0AEW3T776M"
+  # slack-ts-circulars-status: 0 # 0: off, 1: on
+  slack-bs-reports: "sings-blind-reports"
+  # slack-bs-reports-id: ""
+  slack-bs-status: 0 # 0: off, 1: on
+
+ts-config:
+  ts-back-search: 2 # days to look back for TS products
+  interval: 1800 # seconds between checks for new notices in the queue

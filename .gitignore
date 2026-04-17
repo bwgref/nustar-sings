@@ -1,3 +1,18 @@
+NuSTAR.tle
+xrays-7-day.json
+de436.bsp
+observing_schedule.txt
+data/
+aft.txt
+*.aft
+*db
+
+# data files
+.evt
+.fits
+.attorb
+.hk
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
