@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools","setuptools_scm","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nusings"
+dynamic = ["version"]
+requires-python = "< 3.14"
+
+[tool.setuptools-git-versioning]
+enabled = true
